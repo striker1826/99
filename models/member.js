@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 // required: 무조건 필요한지
-const userSchema = new mongoose.Schema({
-  userEmail: {
+const membersSchema = new mongoose.Schema({
+  memberEmail: {
     type: String,
     // required: true,
   },
@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     // required: true,
   },
-  userName: {
+  memberName: {
     type: String,
     // required: true,
   },
@@ -42,8 +42,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     // required: true,
   },
+  img:{
+    type:String,
+    // required: true,
+  },
   createdAt: { type: Date },
   updatedAt: { type: Date },
 });
 
-module.exports = mongoose.model("users", userSchema);
+module.exports = mongoose.model("Members", membersSchema);
