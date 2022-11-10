@@ -60,6 +60,17 @@ class MemberService {
       throw new Error("이메일 또는 패스워드를 다시 확인해주세요");
     }
   };
+
+  getMembersInfo = async(memberEmail)=>{
+    const findOneMember = await this.memberRepository.findOneMember(memberEmail)
+    
+    return findOneMember
+  }
+
+  deleteMembers = async(memberEmail)=>{
+    await this.memberRepository.deleteMembers(memberEmail); //반환값이 없으면 변수가 없어도 됨
+    return 
+  }
 }
 
 module.exports = MemberService;

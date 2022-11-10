@@ -38,6 +38,30 @@ class MembersController {
 
     // }
   };
+  getMembersInfo = async(req,res,next)=>{
+    const {memberEmail} = req.body;
+    const getMember = await this.membersService.getMembersInfo(memberEmail);
+
+    res.status(200).json({getMember})
+  
+  }
+
+  updateMembers = async(req,res,next)=>{
+    const {memberEmail}=req.body;
+    const memberData = await this.membersService.updateMembers(
+      password,
+      phoneNum
+      
+    )
+    res.status(201).json({data:memberData})
+  }
+
+  deleteMembers = async(req,res,next)=>{
+    const {memberEmail}=req.body;
+
+         await this.membersService.deleteMembers(memberEmail)
+    res.status(200).json({message:"탈퇴 끝"});
+  }
 }
 
 module.exports = MembersController;

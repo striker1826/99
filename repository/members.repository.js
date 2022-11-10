@@ -20,6 +20,18 @@ class MemberRepository {
   checkMembersIdDup = async (memberEmail) => {
     return await Members.findOne({ memberEmail });
   };
+  getMembersInfo = async(_id)=>{
+    const members = await Members.findById(_id);
+    return members;
+  }
+  updateMembers =async(memberEmail,password,phoneNum)=>{
+    const updateMembers = await Members.update({ memberEmail, password, phoneNum });
+    return updateMembers;
+  }
+  deleteMembers = async(memberEmail)=>{
+    await Members.delete({ memberEmail });
+    return ;
+  }
 }
 
 module.exports = MemberRepository;
